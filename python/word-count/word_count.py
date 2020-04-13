@@ -14,7 +14,7 @@ def count_words(sentence):
                 count += 1
                 word_count[word] = count
         i += 1
-        return word_count
+    return word_count
 
 
 count_words("one of each")
