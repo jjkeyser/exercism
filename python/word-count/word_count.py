@@ -1,9 +1,13 @@
+import re
+
+
 def count_words(sentence):
-    count = 0
-    word_list = sentence.lower().split()
+
+    word_list = re.findall("[a-z0-9]+'*[0-9a-z]+|[0-9a-z]+", sentence.lower())
     print(word_list)
     word_count = {}
 
+    count = 0
     i = 0
     while i < len(word_list):
         count = 0
@@ -16,4 +20,4 @@ def count_words(sentence):
     return word_count
 
 
-count_words("one,two,three")
+count_words("1: one two's")
