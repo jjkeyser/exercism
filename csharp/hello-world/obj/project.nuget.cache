@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JBrPvcBi2l4bkfp1qC+EH0JK2O/SIN1Cu86pU6M7Ak7Wjsgi6oNQZTPKbDBV1y77aHj1NCEqivV60QdVO7QIMg==",
+  "dgSpecHash": "zwg5uU2Qb7HmTvGKxrBlHlsj15UsmPazGfBHfaGtSUL05iBQ8OmSuyzmkXL8F8auRUuU77guHzG5r/L7k5vo4g==",
   "success": true,
-  "projectFilePath": "/home/jake/exercism/csharp/hello-world/HelloWorld.csproj",
+  "projectFilePath": "/home/jake/github/exercism/csharp/hello-world/HelloWorld.csproj",
   "expectedPackageFiles": [
     "/home/jake/.nuget/packages/microsoft.codecoverage/16.6.1/microsoft.codecoverage.16.6.1.nupkg.sha512",
     "/home/jake/.nuget/packages/microsoft.csharp/4.0.1/microsoft.csharp.4.0.1.nupkg.sha512",

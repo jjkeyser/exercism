@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/jake/exercism/csharp/hello-world/HelloWorld.csproj": {}
+    "/home/jake/github/exercism/csharp/hello-world/HelloWorld.csproj": {}
   },
   "projects": {
-    "/home/jake/exercism/csharp/hello-world/HelloWorld.csproj": {
+    "/home/jake/github/exercism/csharp/hello-world/HelloWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jake/exercism/csharp/hello-world/HelloWorld.csproj",
+        "projectUniqueName": "/home/jake/github/exercism/csharp/hello-world/HelloWorld.csproj",
         "projectName": "HelloWorld",
-        "projectPath": "/home/jake/exercism/csharp/hello-world/HelloWorld.csproj",
+        "projectPath": "/home/jake/github/exercism/csharp/hello-world/HelloWorld.csproj",
         "packagesPath": "/home/jake/.nuget/packages/",
-        "outputPath": "/home/jake/exercism/csharp/hello-world/obj/",
+        "outputPath": "/home/jake/github/exercism/csharp/hello-world/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jake/.nuget/NuGet/NuGet.Config"
