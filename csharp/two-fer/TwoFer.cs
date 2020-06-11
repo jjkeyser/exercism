@@ -2,12 +2,8 @@
 
 public static class TwoFer
 {
-    public static string Speak(string name = null)
+    public static string Speak(string name = "you")
     {
-        if (name is null) {
-            return "One for you, one for me.";
-        } else {
-            return $"One for {name}, one for me.";
-        }
+        return $"One for {name}, one for me.";
     }
 }
