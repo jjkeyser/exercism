@@ -8,7 +8,4 @@ def convert(number):
         sound += "Plong"
     if number % 3 != 0 and number % 5 != 0 and number % 7 != 0:
         sound = str(number)
-    print(sound)
     return sound
-
-convert(15)
