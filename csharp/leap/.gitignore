@@ -2,3 +2,4 @@ bin*
 obj*
 .exercism
 .editor*
+.vscode*
