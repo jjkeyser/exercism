@@ -4,6 +4,7 @@ public static class Gigasecond
 {
     public static DateTime Add(DateTime moment)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        double gigasecond = Math.Pow(10, 9);
+        return moment.AddSeconds(gigasecond);
     }
 }
