@@ -6,4 +6,4 @@ def convert(number):
         sound += "Plang"
     if number % 7 == 0:
         sound += "Plong"
-    return str(number) if sound is "" else sound
+    return sound or str(number)
