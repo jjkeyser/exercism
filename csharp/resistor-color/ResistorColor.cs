@@ -5,14 +5,7 @@ public static class ResistorColor
     public static int ColorCode(string color)
     {
         string[] colorMap = Colors();
-        for (int i = 0; i < colorMap.Length; i++)
-        {
-            if (colorMap[i] == color)
-            {
-                return i;
-            }
-        }
-        return 100;
+        return Array.IndexOf(colorMap, color);
     }
 
     public static string[] Colors()
