@@ -7,7 +7,4 @@ def personal_best(scores):
 
 
 def personal_top_three(scores):
-    # scores_list= scores
-    # scores_list.sort(reverse = True)
-    # print(sorted(scores, reverse= True)[:3])
     return sorted(scores, reverse=True)[:3]
