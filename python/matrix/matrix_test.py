@@ -9,7 +9,7 @@ class MatrixTest(unittest.TestCase):
     def test_extract_row_from_one_number_matrix(self):
         matrix = Matrix("1")
         self.assertEqual(matrix.row(1), [1])
-
+        
     def test_can_extract_row(self):
         matrix = Matrix("1 2\n3 4")
         self.assertEqual(matrix.row(2), [3, 4])
