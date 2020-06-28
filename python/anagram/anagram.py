@@ -1,7 +1,7 @@
 def find_anagrams(word, candidates):
-    anagrams = []
-    for candidate in candidates:
-        if candidate.lower() != word.lower():
-            if sorted(candidate.lower()) == sorted(word.lower()):
-                anagrams.append(candidate)
-    return anagrams
+
+    return [
+        c
+        for c in candidates
+        if c.lower() != word.lower() and sorted(c.lower()) == sorted(word.lower())
+    ]
