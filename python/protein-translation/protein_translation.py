@@ -7,7 +7,6 @@ def proteins(strand):
         "Tyrosine": ["UAU", "UAC"],
         "Cysteine": ["UGU", "UGC"],
         "Tryptophan": ["UGG"],
-        "STOP": ["UAA", "UAG", "UGA"],
     }
 
     n = 3
