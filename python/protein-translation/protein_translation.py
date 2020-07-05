@@ -9,17 +9,17 @@ def proteins(strand):
         "Tryptophan": ["UGG"],
         "STOP": ["UAA", "UAG", "UGA"],
     }
-    # List comprehension can probably be used somehow
+
+    n = 3
+    rna_list = [strand[i : i + n] for i in range(0, len(strand), n)]
     protein_list = []
-    for key, values in proteins.items():
-        for value in values:
-            # Still need to work on a solution to use the dictionary
-            if strand == 'UAA' or strand == 'UAG' or strand == 'UGA':
-                continue
-            elif strand == value:
-                protein_list.append(key)
-    # print(protein_list)
+
+    for rna in rna_list:
+        if rna == "UAA" or rna == "UAG" or rna == "UGA":
+            break
+        else:
+            for key, values in proteins.items():
+                for value in values:
+                    if rna == value:
+                        protein_list.append(key)
     return protein_list
-
-
-proteins("UAA")
