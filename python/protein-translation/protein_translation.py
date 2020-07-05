@@ -9,9 +9,11 @@ def proteins(strand):
         "Tryptophan": ["UGG"],
         "STOP": ["UAA", "UAG", "UGA"],
     }
+    # List comprehension can probably be used somehow
     protein_list = []
     for key, values in proteins.items():
         for value in values:
+            # Still need to work on a solution to use the dictionary
             if strand == 'UAA' or strand == 'UAG' or strand == 'UGA':
                 continue
             elif strand == value:
