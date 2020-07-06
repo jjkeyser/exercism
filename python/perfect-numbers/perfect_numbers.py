@@ -1,7 +1,7 @@
 def classify(number):
     aliquot_sum = 0
     i = 1
-    if number == 0 or number < 0:
+    if number <= 0:
         raise ValueError("The number cannot be 0 or negative!")
 
     while i < number:
