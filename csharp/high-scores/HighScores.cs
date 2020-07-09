@@ -32,14 +32,13 @@ public class HighScores
 
     public List<int> PersonalTopThree()
     {
-        _scores.Sort();
-        _scores.Reverse();
+        List<int> sorted_scores = _scores.OrderByDescending(c => c).ToList();
         if (_scores.Count < 3)
         {
-            return _scores;
+            return sorted_scores;
         } else 
         {
-        return _scores.GetRange(0,3);
+        return sorted_scores.GetRange(0,3);
         }
     }
 }
