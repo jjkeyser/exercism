@@ -10,15 +10,9 @@ public class HighScores
         _scores = new List<int>(list);
     }
 
-    public List<int> Scores()
-    {
-        return _scores;
-    }
+    public List<int> Scores() => _scores;
 
-    public int Latest()
-    {
-        return _scores[_scores.Count -1];
-    }
+    public int Latest() => _scores[_scores.Count - 1];
 
     public int PersonalBest()
     {
