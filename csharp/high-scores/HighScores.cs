@@ -9,27 +9,7 @@ public class HighScores
     
     public HighScores(List<int> list) => _scores = new List<int>(list);
     public List<int> Scores() => _scores;
-    public int Latest() => _scores[_scores.Count - 1];
-
-    public int PersonalBest()
-    {
-        var bestScore = int.MinValue;
-        foreach (int score in _scores)
-        {
-            bestScore = Math.Max(bestScore, score);
-        }
-        return bestScore;
-    }
-
-    public List<int> PersonalTopThree()
-    {
-        List<int> sorted_scores = _scores.OrderByDescending(c => c).ToList();
-        if (_scores.Count < 3)
-        {
-            return sorted_scores;
-        } else 
-        {
-        return sorted_scores.GetRange(0,3);
-        }
-    }
+    public int Latest() => _scores.Last();
+    public int PersonalBest() => _scores.Max();
+    public List<int> PersonalTopThree() => _scores.OrderByDescending(s => s).Take(3).ToList();
 }
