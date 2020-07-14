@@ -5,7 +5,7 @@ public static class NucleotideCount
 {
     public static IDictionary<char, int> Count(string sequence)
     {
-        IDictionary<char, int> Nucleotides = new Dictionary<char, int>()
+        IDictionary<char, int> count = new Dictionary<char, int>()
         {
             {'A', 0},
             {'C', 0},
@@ -15,9 +15,9 @@ public static class NucleotideCount
 
         foreach (var letter in sequence.ToUpper())
         {
-            if (Nucleotides.ContainsKey(letter))
+            if (count.ContainsKey(letter))
             {
-                Nucleotides[letter] += 1;
+                count[letter] += 1;
             } else
             {
                 throw new ArgumentException("Letter not a valid Nucleotide.");
