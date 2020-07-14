@@ -23,6 +23,6 @@ public static class NucleotideCount
                 throw new ArgumentException("Letter not a valid Nucleotide.");
             }
         }
-        return Nucleotides;
+        return count;
     }
 }
