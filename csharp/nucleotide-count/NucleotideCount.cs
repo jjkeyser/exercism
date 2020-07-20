@@ -18,8 +18,7 @@ public static class NucleotideCount
         {
             if (!count.ContainsKey(letter))
                 throw new ArgumentException("Letter not a valid Nucleotide.");                
-            else
-                count[letter]++;
+            count[letter]++;
         }
         return count;
     }
