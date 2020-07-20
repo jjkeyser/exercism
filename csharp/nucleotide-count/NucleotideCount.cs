@@ -16,10 +16,10 @@ public static class NucleotideCount
 
         foreach (var letter in sequence.ToUpper())
         {
-            if (count.ContainsKey(letter))
-                count[letter]++;
+            if (!count.ContainsKey(letter))
+                throw new ArgumentException("Letter not a valid Nucleotide.");                
             else
-                throw new ArgumentException("Letter not a valid Nucleotide.");
+                count[letter]++;
         }
         return count;
     }
