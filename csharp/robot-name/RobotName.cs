@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class Robot
 {
-    private Random _rand = new Random();
+    private static Random _rand = new Random();
     private string _name;
-    private HashSet<string> _usedNames = new HashSet<string>();
+    private static HashSet<string> _usedNames = new HashSet<string>();
 
     public string Name
     {
@@ -17,27 +17,38 @@ public class Robot
 
     public Robot() => _name = GetName();
     
-    private string GenerateNameChars()
+    private string GenerateNameLetters()
     {
-        var randChars = "";
+        var randLetters = "";
         for (int i = 0; i < 2; i++)
         {
-            randChars += (char)_rand.Next('A', 'Z');
+            randLetters += (char)_rand.Next('A', 'Z');
         }
 
-        return randChars;
+        return randLetters;
     }
 
     private string GenerateNameDigits() => _rand.Next(100,1000).ToString();
 
-    public string GetName() => GenerateNameChars() + GenerateNameDigits();
+    public string GetName()
+    {
+        var robotName = "";
+        while (true)
+        {
+            robotName = GenerateNameLetters() + GenerateNameDigits();
+            if (IsNameUnique(robotName) == true)
+            {
+                break;
+            }
+        }
+        _usedNames.Add(robotName);
+        return robotName;
+    }
+
+    private bool IsNameUnique(string name) => _usedNames.Contains(name) ? false : true;
 
     public void Reset()
     {
-        if (_usedNames.Contains(_name))
-        {
-            _usedNames.Remove(_name);
-        }
         _name = GetName();
     }
 }
