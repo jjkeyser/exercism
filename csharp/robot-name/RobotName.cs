@@ -49,6 +49,10 @@ public class Robot
 
     public void Reset()
     {
+        if (_usedNames.Contains(_name))
+        {
+            _usedNames.Remove(_name);
+        }
         _name = GetName();
     }
 }
