@@ -11,10 +11,7 @@ public static class SumOfMultiples
         {
             for (int i = multiple; i < max; i++)
             {
-                if (multiple == 0)
-                {
-                   countedMultiples.Add(0);
-                }else if (i % multiple == 0)
+                if (multiple != 0 && i % multiple == 0)
                 {
                     countedMultiples.Add(i);
                 }
