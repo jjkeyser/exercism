@@ -7,11 +7,11 @@ public static class SumOfMultiples
     public static int Sum(IEnumerable<int> multiples, int max)
     {
         HashSet<int> countedMultiples = new HashSet<int>();
-        foreach (int multiple in multiples)
+        for (int i = 1; i < max; i++)
         {
-            for (int i = multiple; i < max; i++)
+            foreach (int m in multiples)
             {
-                if (multiple != 0 && i % multiple == 0)
+                if (m != 0 && i % m == 0)
                 {
                     countedMultiples.Add(i);
                 }
