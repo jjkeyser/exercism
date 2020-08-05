@@ -1,9 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public static class Isogram
 {
     public static bool IsIsogram(string word)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        var letters = new List<char>();
+        var uniqueLetters = new HashSet<char>();
+        foreach (char w in word.ToLower())
+        {
+            if (Char.IsLetter(w))
+            {
+                letters.Add(w);
+                uniqueLetters.Add(w);
+            }
+        }
+        return letters.Count == uniqueLetters.Count;
     }
 }
