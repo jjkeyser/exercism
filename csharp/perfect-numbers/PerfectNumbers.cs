@@ -31,7 +31,7 @@ public static class PerfectNumbers
 
     private static IEnumerable<int> GetFactors(int number)
     {
-        var factors = new List<int>();
+        var factors = new HashSet<int>();
 
         for (int i = 1; i < number; i++)
         {
