@@ -12,15 +12,17 @@ public static class PerfectNumbers
 {
     public static Classification Classify(int number)
     {
-        if (number <= 0)
+        var aliquotSum = GetFactors(number).Sum();
+        
+        if (number < 1)
         {
             throw new ArgumentOutOfRangeException("not a natural number");
         }
         
-        if(GetFactors(number).Sum() == number)
+        if (aliquotSum == number)
         {
             return Classification.Perfect;
-        } else if (GetFactors(number).Sum() > number)
+        } else if (aliquotSum > number)
         {
             return Classification.Abundant;
         } else
