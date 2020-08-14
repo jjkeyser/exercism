@@ -4,11 +4,20 @@ public static class Grains
 {
     public static ulong Square(int n)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        if (n < 1 || n > 64)
+        {
+            throw new ArgumentOutOfRangeException("square out of range");
+        }
+        return (ulong)Math.Pow(2, n-1);
     }
 
     public static ulong Total()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        ulong totalGrains = 0;
+        for (int i = 1; i <= 64; i++)
+        {
+            totalGrains += Square(i);
+        }
+        return totalGrains;
     }
 }
