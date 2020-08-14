@@ -16,10 +16,7 @@ public enum Allergen
 public class Allergies
 {
     private int _score {get; set;}
-    public Allergies(int mask)
-    {
-        _score = mask;
-    }
+    public Allergies(int mask) => _score = mask;
 
     public bool IsAllergicTo(Allergen allergen) => (_score & (int)allergen) > 0;
 
