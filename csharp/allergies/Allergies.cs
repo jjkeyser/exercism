@@ -21,16 +21,10 @@ public class Allergies
         _score = mask;
     }
 
-    public bool IsAllergicTo(Allergen allergen)
-    {
-        return (_score & (int)allergen) > 0;
-    }
+    public bool IsAllergicTo(Allergen allergen) => (_score & (int)allergen) > 0;
 
-    public Allergen[] List()
-    {
-        return Enum.GetValues(typeof(Allergen))
-                    .Cast<Allergen>()
-                    .Where(a => IsAllergicTo(a))
-                    .ToArray();
-    }
+    public Allergen[] List() => Enum.GetValues(typeof(Allergen))
+                                    .Cast<Allergen>()
+                                    .Where(a => IsAllergicTo(a))
+                                    .ToArray();
 }
