@@ -15,13 +15,13 @@ public enum Allergen
 
 public class Allergies
 {
-    private int _score {get; set;}
+    private int _score;
     public Allergies(int mask) => _score = mask;
 
     public bool IsAllergicTo(Allergen allergen) => (_score & (int)allergen) > 0;
 
     public Allergen[] List() => Enum.GetValues(typeof(Allergen))
                                     .Cast<Allergen>()
-                                    .Where(a => IsAllergicTo(a))
+                                    .Where(IsAllergicTo)
                                     .ToArray();
 }
