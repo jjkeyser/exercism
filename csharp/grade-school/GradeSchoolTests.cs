@@ -58,7 +58,7 @@ public class GradeSchoolTests
         Assert.Equal(expected, sut.Roster());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Grade_returns_the_students_in_that_grade_in_alphabetical_order()
     {
         var sut = new GradeSchool();
@@ -69,7 +69,7 @@ public class GradeSchoolTests
         Assert.Equal(expected, sut.Grade(5));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Grade_returns_an_empty_list_if_there_are_no_students_in_that_grade()
     {
         var sut = new GradeSchool();

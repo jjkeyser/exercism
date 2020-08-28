@@ -33,8 +33,5 @@ public class GradeSchool
         return students;
     }
 
-    public IEnumerable<string> Grade(int grade)
-    {
-        throw new NotImplementedException();
-    }
+    public IEnumerable<string> Grade(int grade) => _StudentRoster.ContainsKey(grade) ? _StudentRoster[grade].ToArray() : new String[0];
 }
