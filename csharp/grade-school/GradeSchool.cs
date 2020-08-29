@@ -4,28 +4,26 @@ using System.Linq;
 
 public class GradeSchool
 {
-    private Dictionary<int, List<string>> _StudentRoster = new Dictionary<int, List<string>>();
+    private SortedDictionary<int,SortedSet<string>> _SchoolRoster = new SortedDictionary<int, SortedSet<string>>();
 
     public void Add(string student, int grade)
     {
-        if (!_StudentRoster.ContainsKey(grade))
+        if (!_SchoolRoster.ContainsKey(grade))
         {
-            _StudentRoster.Add(grade, new List<string>{student});
+            _SchoolRoster.Add(grade, new SortedSet<string>{student});
         }
         else
         {
-            _StudentRoster[grade].Add(student);
-            _StudentRoster[grade].Sort();
+            _SchoolRoster[grade].Add(student);
         }
     }
 
     public IEnumerable<string> Roster()
     {
-        List<string> students = new List<string>();
-        List<int> grades = new List<int> (_StudentRoster.Keys);
-        foreach (int grade in grades.OrderBy(g => g))
+        var students = new List<string>();
+        foreach (int grade in _SchoolRoster.Keys)
         {
-            foreach (string student in _StudentRoster[grade])
+            foreach (string student in _SchoolRoster[grade])
             {
                 students.Add(student);
             }
@@ -33,5 +31,5 @@ public class GradeSchool
         return students;
     }
 
-    public IEnumerable<string> Grade(int grade) => _StudentRoster.ContainsKey(grade) ? _StudentRoster[grade].ToArray() : new String[0];
+    public IEnumerable<string> Grade(int grade) => _SchoolRoster.ContainsKey(grade) ? _SchoolRoster[grade].ToArray() : new String[0];
 }
