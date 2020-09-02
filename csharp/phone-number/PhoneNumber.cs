@@ -1,11 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Text.RegularExpressions;
+
 public class PhoneNumber
 {
     public static string Clean(string phoneNumber)
     {
-        string number = CleanNumber(phoneNumber);
+        string number = Regex.Replace(phoneNumber, "[^0-9]", "");
 
         if (number.Length > 11 || number.Length < 10)
         {
@@ -27,20 +27,6 @@ public class PhoneNumber
         }
 
         return number;
-    }
-
-    private static string CleanNumber(string phoneNumber)
-    {
-        var number = new StringBuilder();
-        foreach (char c in phoneNumber)
-        {
-            if (!char.IsPunctuation(c) && char.IsDigit(c))
-            {
-                number.Append(c);
-            }
-        }
-
-        return number.ToString();
     }
 
     public static bool CountryCodeIsOne(string cleanNumber)
