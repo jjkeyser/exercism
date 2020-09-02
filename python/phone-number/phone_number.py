@@ -13,8 +13,7 @@ class PhoneNumber:
             or len(number) < 10
             or number[len(number) - 10] < "2"
             or number[len(number) - 7] < "2"
-            or len(number) == 11
-            and number[0] != "1"
+            or len(number) == 11 and number[0] != "1"
         ):
             raise ValueError("Invalid number")
 
