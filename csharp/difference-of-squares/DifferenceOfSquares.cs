@@ -4,23 +4,11 @@ public static class DifferenceOfSquares
 {
     public static int CalculateSquareOfSum(int max)
     {
-        int sum = 0;
-        for (int i = 1; i <= max; i++)
-        {
-            sum += i;
-        }
-        return (int)Math.Pow(sum, 2);
+        int sum = (max * (max + 1)) / 2;
+        return sum*sum;
     }
 
-    public static int CalculateSumOfSquares(int max)
-    {
-        int sum = 0;
-        for (int i = 1; i <= max; i++)
-        {
-            sum += (int)Math.Pow(i, 2);
-        }
-        return sum;    
-    }
+    public static int CalculateSumOfSquares(int max) => max * (max + 1) * (2*max + 1) / 6;
 
     public static int CalculateDifferenceOfSquares(int max) => CalculateSquareOfSum(max) - CalculateSumOfSquares(max);
 }
