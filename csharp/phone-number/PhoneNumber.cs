@@ -14,7 +14,7 @@ public class PhoneNumber
             || (number.Length == 11 && number[0] != '1')
            )
         {
-            throw new ArgumentException("Invalid phone number length");
+            throw new ArgumentException("Invalid phone number");
         }
 
         return number.Length == 11 ? number.Substring(1) : number;
