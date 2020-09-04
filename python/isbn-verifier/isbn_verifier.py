@@ -1,10 +1,10 @@
-from re import sub
+import re
 
 
 def is_valid(isbn):
-    number_str = sub("[^0-9]", "", isbn[0:-1])
+    number_str = re.sub("[^0-9]", "", isbn[0:-1])
     check_digit = 0
- 
+
     if not isbn_length_is_valid(number_str):
         return False
 
@@ -12,9 +12,6 @@ def is_valid(isbn):
         return False
     else:
         check_digit = get_isbn_check_digit(isbn[-1])
-
-    print(number_str)
-    print(check_digit)
 
     check_sum = get_isbn_check_sum(number_str)
 
@@ -26,7 +23,7 @@ def isbn_length_is_valid(number):
 
 
 def get_isbn_check_digit(char):
-    if char.lower() == 'x':
+    if char.lower() == "x":
         char = 10
     elif not char.isdigit():
         return False
@@ -34,14 +31,11 @@ def get_isbn_check_digit(char):
         char = int(char)
     return char
 
+
 def get_isbn_check_sum(number_str):
     check_sum = 0
     i = 10
     for num in number_str:
         check_sum += i * int(num)
-        print(check_sum)
         i -= 1
     return check_sum
-
-
-is_valid("3-598-21508-A")
