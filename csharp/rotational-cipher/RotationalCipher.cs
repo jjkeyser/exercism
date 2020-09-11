@@ -4,7 +4,6 @@ using System.Linq;
 
 public static class RotationalCipher
 {
-    private static char[] alphabet = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
     public static string Rotate(string text, int shiftKey)
     {
         char[] chars = text.ToCharArray();
