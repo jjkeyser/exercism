@@ -1,9 +1,24 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public static class RotationalCipher
 {
+    private static char[] alphabet = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
     public static string Rotate(string text, int shiftKey)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        char[] chars = text.ToCharArray();
+        for (int i = 0; i < chars.Length; i++)
+        {
+            char letter = chars[i];
+            if (!Char.IsLetter(letter))
+            {
+                chars[i] = letter;
+                continue;
+            }
+            char d = char.IsUpper(letter) ? 'A' : 'a';
+            chars[i] = (char)((((letter + shiftKey) - d) % 26) + d);
+        }
+        return new string(chars);
     }
 }
