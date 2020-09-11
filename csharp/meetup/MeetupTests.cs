@@ -13,7 +13,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Monday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Monteenth_of_august_2013()
     {
         var sut = new Meetup(8, 2013);
@@ -21,7 +21,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Monday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Monteenth_of_september_2013()
     {
         var sut = new Meetup(9, 2013);
@@ -29,7 +29,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Monday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Tuesteenth_of_march_2013()
     {
         var sut = new Meetup(3, 2013);
@@ -37,7 +37,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Tuesday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Tuesteenth_of_april_2013()
     {
         var sut = new Meetup(4, 2013);
@@ -45,7 +45,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Tuesday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Tuesteenth_of_august_2013()
     {
         var sut = new Meetup(8, 2013);
@@ -53,7 +53,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Tuesday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Wednesteenth_of_january_2013()
     {
         var sut = new Meetup(1, 2013);
@@ -61,7 +61,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Wednesday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Wednesteenth_of_february_2013()
     {
         var sut = new Meetup(2, 2013);
@@ -69,7 +69,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Wednesday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Wednesteenth_of_june_2013()
     {
         var sut = new Meetup(6, 2013);
@@ -77,7 +77,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Wednesday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Thursteenth_of_may_2013()
     {
         var sut = new Meetup(5, 2013);
@@ -85,7 +85,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Thursday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Thursteenth_of_june_2013()
     {
         var sut = new Meetup(6, 2013);
@@ -93,7 +93,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Thursday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Thursteenth_of_september_2013()
     {
         var sut = new Meetup(9, 2013);
@@ -101,7 +101,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Thursday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Friteenth_of_april_2013()
     {
         var sut = new Meetup(4, 2013);
@@ -109,7 +109,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Friday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Friteenth_of_august_2013()
     {
         var sut = new Meetup(8, 2013);
@@ -117,7 +117,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Friday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Friteenth_of_september_2013()
     {
         var sut = new Meetup(9, 2013);
@@ -125,7 +125,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Friday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Saturteenth_of_february_2013()
     {
         var sut = new Meetup(2, 2013);
@@ -133,7 +133,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Saturday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Saturteenth_of_april_2013()
     {
         var sut = new Meetup(4, 2013);
@@ -141,7 +141,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Saturday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Saturteenth_of_october_2013()
     {
         var sut = new Meetup(10, 2013);
@@ -149,7 +149,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Saturday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Sunteenth_of_may_2013()
     {
         var sut = new Meetup(5, 2013);
@@ -157,7 +157,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Sunday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Sunteenth_of_june_2013()
     {
         var sut = new Meetup(6, 2013);
@@ -165,7 +165,7 @@ public class MeetupTests
         Assert.Equal(expected, sut.Day(DayOfWeek.Sunday, Schedule.Teenth));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Sunteenth_of_october_2013()
     {
         var sut = new Meetup(10, 2013);
