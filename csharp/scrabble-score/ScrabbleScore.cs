@@ -16,9 +16,8 @@ public static class ScrabbleScore
     
     public static int Score(string input)
     {
-        char[] letters = input.ToUpper().ToCharArray();
         int score = 0;
-        foreach (var letter in letters)
+        foreach (var letter in input.ToUpper())
         {
             foreach (var key in SCORES.Keys)
             {
