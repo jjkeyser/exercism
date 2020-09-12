@@ -50,6 +50,14 @@ public class Meetup
                     return date;
                 }
             }
+            if (schedule == Schedule.Third)
+            {
+                if (date.DayOfWeek == dayOfWeek && date.Day > 14)
+                {
+                    return date;
+                }
+            }
+
         }
         return startDate;
     }
