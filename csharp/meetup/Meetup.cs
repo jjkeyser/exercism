@@ -57,9 +57,22 @@ public class Meetup
                     return date;
                 }
             }
-
+            if (schedule == Schedule.Fourth)
+            {
+                if (date.DayOfWeek == dayOfWeek && date.Day > 21)
+                {
+                    return date;
+                }
+            }
+            if (schedule == Schedule.Last)
+            {
+                if (date.DayOfWeek == dayOfWeek && daysInMonth - date.Day < 7)
+                {
+                    return date;
+                }
+            }
         }
-        return startDate;
+        return endDate;
     }
     public IEnumerable<DateTime> EachDay(DateTime from, DateTime thru)
     {
