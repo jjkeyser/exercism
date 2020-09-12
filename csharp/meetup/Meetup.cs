@@ -43,6 +43,13 @@ public class Meetup
                     return date;
                 }
             }
+            if (schedule == Schedule.Second)
+            {
+                if (date.DayOfWeek == dayOfWeek && date.Day > 7)
+                {
+                    return date;
+                }
+            }
         }
         return startDate;
     }
