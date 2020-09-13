@@ -10,7 +10,6 @@ public static class RotationalCipher
             char letter = chars[i];
             if (!Char.IsLetter(letter))
             {
-                chars[i] = letter;
                 continue;
             }
             char d = char.IsUpper(letter) ? 'A' : 'a';
