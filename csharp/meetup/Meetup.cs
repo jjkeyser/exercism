@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using System.Linq;
 
 public enum Schedule
 {
@@ -23,51 +23,28 @@ public class Meetup
 
     public DateTime Day(DayOfWeek dayOfWeek, Schedule schedule)
     {
-        int daysInMonth = DateTime.DaysInMonth(_year, _month);
         DateTime startDate = new DateTime(_year, _month, 1);
-        DateTime endDate = new DateTime(_year, _month, daysInMonth);
+        var day_list = Enumerable.Range(1, DateTime.DaysInMonth(_year, _month))
+                                  .Select(day => new DateTime(_year, _month, day))
+                                  .Where(day => day.DayOfWeek == dayOfWeek)
+                                  .ToList();
+
         switch (schedule)
         {
-            case Schedule.Teenth:
-                startDate = new DateTime(_year, _month, 13);
-                endDate = new DateTime(_year, _month, 19);
-                break;
             case Schedule.First:
-                startDate = new DateTime(_year, _month, 1);
-                endDate = new DateTime(_year, _month, 7);
-                break;
+                return day_list[0];
             case Schedule.Second:
-                startDate = new DateTime(_year, _month, 8);
-                endDate = new DateTime(_year, _month, 14);
-                break;
+                return day_list[1];
             case Schedule.Third:
-                startDate = new DateTime(_year, _month, 15);
-                endDate = new DateTime(_year, _month, 21);
-                break;
+                return day_list[2];
             case Schedule.Fourth:
-                startDate = new DateTime(_year, _month, 22);
-                endDate = new DateTime(_year, _month, daysInMonth);
-                break;
+                return day_list[3];
             case Schedule.Last:
-                startDate = new DateTime(_year, _month, daysInMonth - 6);
-                endDate = new DateTime(_year, _month, daysInMonth);
-                break;
+                return day_list.Last();
+            case Schedule.Teenth:
+                return day_list.First(date => date.Day > 12 && date.Day < 20 );
             default:
-                break;
-        }
-
-        foreach(DateTime date in EachDay(startDate, endDate))
-        {
-            if(date.DayOfWeek == dayOfWeek)
-            {
-                return date;
-            }
-        }
-        throw new ArgumentException("Invalid arguments. Meetup date could not be determined.");
-    }
-    public IEnumerable<DateTime> EachDay(DateTime from, DateTime thru)
-    {
-        for(var day = from.Date; day.Date <= thru.Date; day = day.AddDays(1))
-            yield return day;
+                throw new ArgumentException("Invalid arguments. A meetup date was unable to be determined");
+        }                        
     }
 }
