@@ -26,49 +26,41 @@ public class Meetup
         int daysInMonth = DateTime.DaysInMonth(_year, _month);
         DateTime startDate = new DateTime(_year, _month, 1);
         DateTime endDate = new DateTime(_year, _month, daysInMonth);
+        switch (schedule)
+        {
+            case Schedule.Teenth:
+                startDate = new DateTime(_year, _month, 13);
+                endDate = new DateTime(_year, _month, 19);
+                break;
+            case Schedule.First:
+                startDate = new DateTime(_year, _month, 1);
+                endDate = new DateTime(_year, _month, 7);
+                break;
+            case Schedule.Second:
+                startDate = new DateTime(_year, _month, 8);
+                endDate = new DateTime(_year, _month, 14);
+                break;
+            case Schedule.Third:
+                startDate = new DateTime(_year, _month, 15);
+                endDate = new DateTime(_year, _month, 21);
+                break;
+            case Schedule.Fourth:
+                startDate = new DateTime(_year, _month, 22);
+                endDate = new DateTime(_year, _month, daysInMonth);
+                break;
+            case Schedule.Last:
+                startDate = new DateTime(_year, _month, daysInMonth - 6);
+                endDate = new DateTime(_year, _month, daysInMonth);
+                break;
+            default:
+                break;
+        }
 
         foreach(DateTime date in EachDay(startDate, endDate))
         {
-            switch (schedule)
+            if(date.DayOfWeek == dayOfWeek)
             {
-                case Schedule.Teenth:
-                    if (date.DayOfWeek == dayOfWeek && date.Day > 12 && date.Day < 20)
-                    {
-                        return date;
-                    }
-                    break;
-                case Schedule.First:
-                    if (date.DayOfWeek == dayOfWeek)
-                    {
-                        return date;
-                    }
-                    break;
-                case Schedule.Second:
-                    if (date.DayOfWeek == dayOfWeek && date.Day > 7 && date.Day < 15)
-                    {
-                        return date;
-                    }
-                    break;
-                case Schedule.Third:
-                    if (date.DayOfWeek == dayOfWeek && date.Day > 14 && date.Day < 22)
-                    {
-                        return date;
-                    }
-                    break;
-                case Schedule.Fourth:
-                    if (date.DayOfWeek == dayOfWeek && date.Day > 21)
-                    {
-                        return date;
-                    }
-                    break;
-                case Schedule.Last:
-                    if (date.DayOfWeek == dayOfWeek && daysInMonth - date.Day < 7)
-                    {
-                        return date;
-                    }
-                    break;
-                default:
-                    break;
+                return date;
             }
         }
         throw new ArgumentException("Invalid arguments. Meetup date could not be determined.");
