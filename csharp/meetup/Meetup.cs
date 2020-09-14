@@ -29,50 +29,49 @@ public class Meetup
 
         foreach(DateTime date in EachDay(startDate, endDate))
         {
-            if (schedule == Schedule.Teenth)
+            switch (schedule)
             {
-                if (date.DayOfWeek == dayOfWeek && date.Day > 12 && date.Day < 20)
-                {
-                    return date;
-                }
-            }
-            if (schedule == Schedule.First)
-            {
-                if (date.DayOfWeek == dayOfWeek)
-                {
-                    return date;
-                }
-            }
-            if (schedule == Schedule.Second)
-            {
-                if (date.DayOfWeek == dayOfWeek && date.Day > 7)
-                {
-                    return date;
-                }
-            }
-            if (schedule == Schedule.Third)
-            {
-                if (date.DayOfWeek == dayOfWeek && date.Day > 14)
-                {
-                    return date;
-                }
-            }
-            if (schedule == Schedule.Fourth)
-            {
-                if (date.DayOfWeek == dayOfWeek && date.Day > 21)
-                {
-                    return date;
-                }
-            }
-            if (schedule == Schedule.Last)
-            {
-                if (date.DayOfWeek == dayOfWeek && daysInMonth - date.Day < 7)
-                {
-                    return date;
-                }
+                case Schedule.Teenth:
+                    if (date.DayOfWeek == dayOfWeek && date.Day > 12 && date.Day < 20)
+                    {
+                        return date;
+                    }
+                    break;
+                case Schedule.First:
+                    if (date.DayOfWeek == dayOfWeek)
+                    {
+                        return date;
+                    }
+                    break;
+                case Schedule.Second:
+                    if (date.DayOfWeek == dayOfWeek && date.Day > 7 && date.Day < 15)
+                    {
+                        return date;
+                    }
+                    break;
+                case Schedule.Third:
+                    if (date.DayOfWeek == dayOfWeek && date.Day > 14 && date.Day < 22)
+                    {
+                        return date;
+                    }
+                    break;
+                case Schedule.Fourth:
+                    if (date.DayOfWeek == dayOfWeek && date.Day > 21)
+                    {
+                        return date;
+                    }
+                    break;
+                case Schedule.Last:
+                    if (date.DayOfWeek == dayOfWeek && daysInMonth - date.Day < 7)
+                    {
+                        return date;
+                    }
+                    break;
+                default:
+                    break;
             }
         }
-        return endDate;
+        throw new ArgumentException("Invalid arguments. Meetup date could not be determined.");
     }
     public IEnumerable<DateTime> EachDay(DateTime from, DateTime thru)
     {
