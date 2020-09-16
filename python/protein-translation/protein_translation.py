@@ -7,7 +7,7 @@ def proteins(strand):
         "Tyrosine": ["UAU", "UAC"],
         "Cysteine": ["UGU", "UGC"],
         "Tryptophan": ["UGG"],
-        "STOP": ["UAA", "UAG", "UGA"]
+        "STOP": ["UAA", "UAG", "UGA"],
     }
 
     n = 3
@@ -15,11 +15,11 @@ def proteins(strand):
     protein_list = []
 
     for rna in rna_list:
-        if rna in proteins.get("STOP"):
+        if rna in proteins["STOP"]:
             break
-        else:
-            for key, values in proteins.items():
-                for value in values:
-                    if rna == value:
-                        protein_list.append(key)
+        for key, values in proteins.items():
+            for value in values:
+                if rna == value:
+                    protein_list.append(key)
+
     return protein_list
