@@ -1,9 +1,5 @@
 def slices(series, length):
-    if length > len(series):
-        raise ValueError("The slice length can't exceed the series")
-    elif length <= 0:
-        raise ValueError("The slice length must be greater than 0")
-    elif series is "":
-        raise ValueError("The series cannot be empty")
+    if length > len(series) or length <= 0 or series == "":
+        raise ValueError("Invalid arguments")
 
     return [series[i : length + i] for i in range(0, len(series) - length + 1)]
