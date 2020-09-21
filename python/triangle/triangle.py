@@ -23,6 +23,8 @@ def scalene(sides):
 
 
 def is_triangle(sides):
+    if len(sides) != 3:
+        return False
     for side in sides:
         if side <= 0:
             return False
