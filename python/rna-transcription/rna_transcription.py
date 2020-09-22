@@ -1,12 +1,9 @@
 def to_rna(dna_strand):
-    rna = ""
-    for dna in dna_strand:
-        if dna == 'G':
-            rna += 'C'
-        if dna == 'C':
-            rna += 'G'
-        if dna == 'T':
-            rna += 'A'
-        if dna == 'A':
-            rna += 'U'
-    return rna
+    nucleotide_mappings = {
+        'G' : 'C',
+        'C' : 'G',
+        'T' : 'A',
+        'A' : 'U'
+    }
+
+    return "".join([nucleotide_mappings[dna] for dna in dna_strand])
