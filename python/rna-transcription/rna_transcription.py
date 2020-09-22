@@ -1,6 +1,6 @@
 def to_rna(dna_strand):
     rna = ""
-    for dna in dna_strand.upper():
+    for dna in dna_strand:
         if dna == 'G':
             rna += 'C'
         if dna == 'C':
