@@ -1,8 +1,12 @@
 def largest(min_factor, max_factor):
     if min_factor > max_factor:
         raise ValueError("Min can't be greater than max")
-    
-    l = max(get_palindromic_products(min_factor, max_factor)) if len(get_palindromic_products(min_factor, max_factor)) > 0 else None
+
+    l = (
+        max(get_palindromic_products(min_factor, max_factor))
+        if len(get_palindromic_products(min_factor, max_factor)) > 0
+        else None
+    )
     return l, get_factors(l, min_factor, max_factor)
 
 
@@ -10,7 +14,11 @@ def smallest(min_factor, max_factor):
     if min_factor > max_factor:
         raise ValueError("Min can't be greater than max")
 
-    s = min(get_palindromic_products(min_factor, max_factor)) if len(get_palindromic_products(min_factor, max_factor)) > 0 else None
+    s = (
+        min(get_palindromic_products(min_factor, max_factor))
+        if len(get_palindromic_products(min_factor, max_factor)) > 0
+        else None
+    )
     return s, get_factors(s, min_factor, max_factor)
 
 
