@@ -4,19 +4,11 @@ public static class LargestSeriesProduct
 {
     public static long GetLargestProduct(string digits, int span) 
     {
-        var largestProduct = 0;
+        var largest = 0;
 
-        if (span == 0)
+        if (!digits.All(Char.IsDigit))
         {
-            largestProduct = 1;
-        }
-
-        foreach (char d in digits)
-        {
-            if (!char.IsDigit(d))
-            {
-                throw new ArgumentException("String must only contain digits");
-            }
+            throw new ArgumentException("String must only contain digits");
         }
 
         if (span > digits.Length || span < 0)
@@ -26,19 +18,16 @@ public static class LargestSeriesProduct
 
         for (int i = 0; i < (digits.Length + 1) - span; i++)
         {
-            var currentProduct = 1;
+            var product = 1;
             
             foreach (var d in digits.Substring(i,span))
             {
-                currentProduct *= (int)char.GetNumericValue(d);
+                product *= (int)char.GetNumericValue(d);
             }
 
-            if (currentProduct > largestProduct)
-            {
-                largestProduct = currentProduct;
-            }
+            largest = (largest > product) ? largest : product;
         }
 
-        return largestProduct;
+        return largest;
     }
 }
