@@ -23,31 +23,23 @@ public static class LargestSeriesProduct
             return 1;
         }
 
-        if (span == digits.Length)
-        {
-            foreach (var d in digits)
-            {
-                largestProduct *= (int)char.GetNumericValue(d);
-            }
-        }
-        else
-        {
-            for (int i = 0; i < (digits.Length + 1) - span; i++)
-            {
-                var currentProduct = 1;
-                var currentSubstring = digits.Substring(i,span);
-                
-                foreach (var d in currentSubstring)
-                {
-                    currentProduct *= (int)char.GetNumericValue(d);
-                }
 
-                if (currentProduct > largestProduct)
-                {
-                    largestProduct = currentProduct;
-                }
+        for (int i = 0; i < (digits.Length + 1) - span; i++)
+        {
+            var currentProduct = 1;
+            var currentSubstring = digits.Substring(i,span);
+            
+            foreach (var d in currentSubstring)
+            {
+                currentProduct *= (int)char.GetNumericValue(d);
+            }
+
+            if (currentProduct > largestProduct)
+            {
+                largestProduct = currentProduct;
             }
         }
+
         return largestProduct == 1 ? 0 : largestProduct;
     }
 }
