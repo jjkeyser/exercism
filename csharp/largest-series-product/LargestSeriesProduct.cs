@@ -4,7 +4,12 @@ public static class LargestSeriesProduct
 {
     public static long GetLargestProduct(string digits, int span) 
     {
-        var largestProduct = 1;
+        var largestProduct = 0;
+
+        if (span == 0)
+        {
+            largestProduct = 1;
+        }
 
         foreach (char d in digits)
         {
@@ -14,22 +19,16 @@ public static class LargestSeriesProduct
             }
         }
 
-        if (span > digits.Length || span < 0){
+        if (span > digits.Length || span < 0)
+        {
             throw new ArgumentException("Invalid Span");
         }
-
-        if (digits == "" || span == 0)
-        {
-            return 1;
-        }
-
 
         for (int i = 0; i < (digits.Length + 1) - span; i++)
         {
             var currentProduct = 1;
-            var currentSubstring = digits.Substring(i,span);
             
-            foreach (var d in currentSubstring)
+            foreach (var d in digits.Substring(i,span))
             {
                 currentProduct *= (int)char.GetNumericValue(d);
             }
@@ -40,6 +39,6 @@ public static class LargestSeriesProduct
             }
         }
 
-        return largestProduct == 1 ? 0 : largestProduct;
+        return largestProduct;
     }
 }
