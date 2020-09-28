@@ -6,6 +6,7 @@ public class CircularBuffer<T>
     private int _StartPointer = 0;
     private int _EndPointer = 0;
     private int _CountInBuffer = 0;
+    
     public CircularBuffer(int capacity)
     {
         _buffer = new T[capacity];
@@ -51,11 +52,10 @@ public class CircularBuffer<T>
 
     public void Clear()
     {
-        if (_CountInBuffer == 0)
+        if (_CountInBuffer > 0)
         {
-            return;
+            Array.Clear(_buffer, _StartPointer, 1);
+            _CountInBuffer --;
         }
-        Array.Clear(_buffer, _StartPointer, 1);
-        _CountInBuffer --;
     }
 }
