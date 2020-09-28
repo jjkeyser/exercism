@@ -38,16 +38,12 @@ public class CircularBuffer<T>
 
     public void Overwrite(T value)
     {
-        if (_CountInBuffer != _buffer.Length)
-        {
-            Write(value);
-        }
-        else
+        if (_CountInBuffer == _buffer.Length)
         {
             _CountInBuffer --;
-            Write(value);
             _StartPointer = (_StartPointer + 1) % _buffer.Length;
         }
+        Write(value);
     }
 
     public void Clear()
