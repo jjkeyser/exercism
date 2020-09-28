@@ -39,7 +39,7 @@ def get_verse(number):
     )
 
     return (
-        f"{opening_phrase} {LYRICS[-1]}."
-        if number == 1
-        else f"{opening_phrase} {', '.join(LYRICS[-number: -1])}, and {LYRICS[-1]}."
+        f"{opening_phrase} {', '.join(LYRICS[-number: -1])}, and {LYRICS[-1]}."
+        if number > 1
+        else f"{opening_phrase} {LYRICS[-1]}."
     )
