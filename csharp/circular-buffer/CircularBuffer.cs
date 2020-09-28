@@ -3,7 +3,6 @@
 public class CircularBuffer<T>
 {
     private readonly T[] _buffer;
-    private readonly int _capacity;
     private int _StartPointer = 0;
     private int _EndPointer = 0;
     private int _CountInBuffer = 0;
