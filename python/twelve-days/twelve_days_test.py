@@ -12,7 +12,7 @@ class TwelveDaysTest(unittest.TestCase):
             "a Partridge in a Pear Tree."
         ]
         self.assertEqual(recite(1, 1), expected)
-    
+
     def test_second_day_two_turtle_doves(self):
         expected = [
             "On the second day of Christmas my true love gave to me: "
