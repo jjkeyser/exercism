@@ -34,12 +34,6 @@ def recite(start_verse, end_verse):
 
 
 def get_verse(number):
-    opening_phrase = (
-        f"On the {DAY[number - 1]} day of Christmas my true love gave to me:"
-    )
+    opening_phrase = f"On the {DAY[number - 1]} day of Christmas my true love gave to me:"
 
-    return (
-        f"{opening_phrase} {', '.join(LYRICS[-number: -1])}, and {LYRICS[-1]}."
-        if number > 1
-        else f"{opening_phrase} {LYRICS[-1]}."
-    )
+    return f"{opening_phrase} {', '.join(LYRICS[-number: -1])}, and {LYRICS[-1]}." if number > 1 else f"{opening_phrase} {LYRICS[-1]}."
