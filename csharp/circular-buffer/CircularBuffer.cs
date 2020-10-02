@@ -2,7 +2,7 @@
 
 public class CircularBuffer<T>
 {
-    private readonly T[] _buffer;
+    private T[] _buffer;
     private int _startPointer = 0;
     private int _endPointer = 0;
     private int _countInBuffer = 0;
