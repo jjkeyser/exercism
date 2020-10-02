@@ -1,6 +1,10 @@
 
 export const decodedValue = (colors) => {
-    return parseInt(COLORS.indexOf(colors[0]).toString() + COLORS.indexOf(colors[1]).toString());
+    return (getIndexOfColor(colors[0]) * 10) + getIndexOfColor(colors[1]);
 };
 
 export const COLORS = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white'];
+
+function getIndexOfColor(color) {
+    return COLORS.indexOf(color);
+}
