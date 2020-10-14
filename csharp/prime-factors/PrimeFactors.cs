@@ -9,13 +9,10 @@ public static class PrimeFactors
 
         for (int a = 2; number > 1; a++) 
         {
-            if (number % a == 0) 
+            while (number % a == 0) 
             {
-                while (number % a == 0) 
-                {
-                    primeFactors.Add(a);
-                    number /= a;
-                }
+                primeFactors.Add(a);
+                number /= a;
             }
         }
 
