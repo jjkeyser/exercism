@@ -6,13 +6,19 @@ public static class PrimeFactors
     public static long[] Factors(long number)
     {
         List<long> primeFactors = new List<long>();
+        long divisor = 2;
+        long numerator = number;
 
-        for (int a = 2; number > 1; a++) 
+        while (numerator != 1) 
         {
-            while (number % a == 0) 
+            if (numerator % divisor == 0) 
             {
-                primeFactors.Add(a);
-                number /= a;
+                numerator /= divisor;
+                primeFactors.Add(divisor);
+            }
+            else 
+            {
+                divisor++;
             }
         }
 
