@@ -32,14 +32,14 @@ public class Clock : IEquatable<Clock>
         }
 
         Hours = Hours % HOURSINDAY;
-        
+
         if (Hours < 0) 
         { 
             Hours += HOURSINDAY;
         }
     }
 
-    public override string ToString() => $"{Hours.ToString("D2")}:{Minutes.ToString("D2")}";
+    public override string ToString() => $"{Hours:D2}:{Minutes:D2}";
 
     public bool Equals(Clock clockToCompare) => ToString().Equals(clockToCompare.ToString());
 }
