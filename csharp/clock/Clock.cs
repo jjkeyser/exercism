@@ -1,19 +1,45 @@
 using System;
 
-public class Clock
+public class Clock : IEquatable<Clock>
 {
+    private const int MINUTESINHOUR = 60;
+    private const int HOURSINDAY = 24;
+
+    public int Hours {get; set;}
+    public int Minutes {get; set;}
+
     public Clock(int hours, int minutes)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        Hours = hours;
+        Minutes = minutes;
+
+        getClockTime();
     }
 
-    public Clock Add(int minutesToAdd)
+    public Clock Add(int minutesToAdd) => new Clock(Hours, Minutes + minutesToAdd);
+
+    public Clock Subtract(int minutesToSubtract) => Add(-minutesToSubtract);
+
+    public void getClockTime()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        Hours = Hours + Minutes / MINUTESINHOUR;
+        Minutes = Minutes % MINUTESINHOUR;
+
+        if (Minutes < 0) 
+        {
+            Minutes += MINUTESINHOUR;
+            Hours--;
+        }
+
+        Hours = Hours % HOURSINDAY;
+        
+        if (Hours < 0) 
+        { 
+            Hours += HOURSINDAY;
+        }
     }
 
-    public Clock Subtract(int minutesToSubtract)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    public override string ToString() => $"{Hours.ToString("D2")}:{Minutes.ToString("D2")}";
+
+    public bool Equals(Clock clockToCompare) => ToString().Equals(clockToCompare.ToString());
 }
