@@ -1,45 +1,45 @@
 using System;
 
-public class Clock : IEquatable<Clock>
+public struct Clock : IEquatable<Clock>
 {
     private const int MINUTESINHOUR = 60;
     private const int HOURSINDAY = 24;
 
-    public int Hours {get; set;}
-    public int Minutes {get; set;}
+    private int _hours;
+    private int _minutes;
 
     public Clock(int hours, int minutes)
     {
-        Hours = hours;
-        Minutes = minutes;
+        _hours = hours;
+        _minutes = minutes;
 
         getClockTime();
     }
 
-    public Clock Add(int minutesToAdd) => new Clock(Hours, Minutes + minutesToAdd);
+    public Clock Add(int minutesToAdd) => new Clock(_hours, _minutes + minutesToAdd);
 
     public Clock Subtract(int minutesToSubtract) => Add(-minutesToSubtract);
 
     public void getClockTime()
     {
-        Hours = Hours + Minutes / MINUTESINHOUR;
-        Minutes = Minutes % MINUTESINHOUR;
+        _hours = _hours + _minutes / MINUTESINHOUR;
+        _minutes = _minutes % MINUTESINHOUR;
 
-        if (Minutes < 0) 
+        if (_minutes < 0) 
         {
-            Minutes += MINUTESINHOUR;
-            Hours--;
+            _minutes += MINUTESINHOUR;
+            _hours--;
         }
 
-        Hours = Hours % HOURSINDAY;
+        _hours = _hours % HOURSINDAY;
 
-        if (Hours < 0) 
+        if (_hours < 0) 
         { 
-            Hours += HOURSINDAY;
+            _hours += HOURSINDAY;
         }
     }
 
-    public override string ToString() => $"{Hours:D2}:{Minutes:D2}";
+    public override string ToString() => $"{_hours:D2}:{_minutes:D2}";
 
     public bool Equals(Clock clockToCompare) => ToString().Equals(clockToCompare.ToString());
 }
