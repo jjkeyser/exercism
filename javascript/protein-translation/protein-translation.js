@@ -22,11 +22,7 @@ export const translate = (rnaSequence = '') => {
 
   let proteins = [];
 
-  if (rnaSequence.length % 3 !== 0) {
-    throw Error('Invalid codon')
-  }
-
-  for (let i = 0; i < rnaSequence.length - 2; i += 3) {
+  for (let i = 0; i < rnaSequence.length; i += 3) {
     let codon = rnaSequence.slice(i, i + 3);
     
     if (!(codon in codonMap)) {
