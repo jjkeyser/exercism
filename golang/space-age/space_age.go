@@ -14,11 +14,11 @@ var planetConversion = map[Planet]float64{
 	"Neptune": 164.79132,
 }
 
-// EARTHYEARINSECONDS represents the number of seconds in one Earth year according to the Gregorian calendar
-const EARTHYEARINSECONDS float64 = 365.2425 * 24.0 * 60 * 60
+// EarthYearInSeconds represents the number of seconds in one Earth year according to the Gregorian calendar
+const EarthYearInSeconds float64 = 365.2425 * 24.0 * 60 * 60
 
-// Age takes an age in seconds on earth and a planet to determine the age on and returns the age in Earth years on that planet
+// Age takes an age in seconds on earth and a planet and returns the age in Earth years on that planet
 func Age(seconds float64, planet Planet) float64 {
-	earthAge := seconds / EARTHYEARINSECONDS
+	earthAge := seconds / EarthYearInSeconds
 	return earthAge / planetConversion[planet]
 }
