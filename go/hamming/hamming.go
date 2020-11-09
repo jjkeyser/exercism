@@ -1,7 +1,9 @@
+// Package hamming includes a function to calculate the Hamming distance of two strings
 package hamming
 
 import "errors"
 
+// Distance takes two strings and returns their Hamming distance. Returns error if strings are of different lengths.
 func Distance(a, b string) (int, error) {
 	var distance int
 	if len(a) != len(b) {
