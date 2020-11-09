@@ -1,18 +1,20 @@
 // Package hamming includes a function to calculate the Hamming distance of two strings
 package hamming
 
-import "errors"
+import (
+	"fmt"
+)
 
 // Distance takes two strings and returns their Hamming distance. Returns error if strings are of different lengths.
 func Distance(a, b string) (int, error) {
-	var distance int
+	var hammingDistance int
 	if len(a) != len(b) {
-		return distance, errors.New("Strings are different lengths, can't determine Hamming distance")
+		return hammingDistance, fmt.Errorf("%s and %s are different lengths", a, b)
 	}
 	for i := 0; i < len(a); i++ {
 		if a[i] != b[i] {
-			distance++
+			hammingDistance++
 		}
 	}
-	return distance, nil
+	return hammingDistance, nil
 }
