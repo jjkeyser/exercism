@@ -2,6 +2,7 @@ package raindrops
 
 import "strconv"
 
+// Convert takes a number and converts it to a string of raindrops
 func Convert(input int) (result string) {
 	if input%3 == 0 {
 		result += "Pling"
