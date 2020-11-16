@@ -44,7 +44,7 @@ func IsShouting(s string) bool {
 
 // IsQuestion takes a string and determines if the last character is a question mark
 func IsQuestion(s string) bool {
-	return string(s[len(s)-1]) == "?"
+	return strings.HasSuffix(s, "?")
 }
 
 // HasLetters determines if a string contains any letters
