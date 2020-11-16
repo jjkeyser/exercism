@@ -15,11 +15,11 @@ type DNA string
 func (d DNA) Counts() (Histogram, error) {
 	h := Histogram{'A': 0, 'C': 0, 'G': 0, 'T': 0}
 	for _, nucleotide := range d {
-		_, ok := h[nucleotide]
-		if !ok {
+		if _, ok := h[nucleotide]; ok {
+			h[nucleotide]++
+		} else {
 			return Histogram{}, fmt.Errorf("%q is not a valid nucleotide", nucleotide)
 		}
-		h[nucleotide]++
 	}
 	return h, nil
 }
