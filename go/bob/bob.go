@@ -1,15 +1,58 @@
-// This is a "stub" file.  It's a little start on your solution.
-// It's not a complete solution though; you have to write some code.
-
-// Package bob should have a package comment that summarizes what it's about.
-// https://golang.org/doc/effective_go.html#commentary
+// Package bob contains functions to determine the response given a string
 package bob
 
-// Hey should have a comment documenting it.
+import (
+	"strings"
+	"unicode"
+)
+
+const (
+	defaultResponse         = "Whatever."
+	shoutResponse           = "Whoa, chill out!"
+	questionResponse        = "Sure."
+	shoutedQuestionResponse = "Calm down, I know what I'm doing!"
+	emptyStatementResponse  = "Fine. Be that way!"
+)
+
+// Hey takes a string and returns a response based on the formatting of the string
 func Hey(remark string) string {
-	// Write some code here to pass the test suite.
-	// Then remove all the stock comments.
-	// They're here to help you get started but they only clutter a finished solution.
-	// If you leave them in, reviewers may protest!
-	return ""
+	trimmedRemark := strings.TrimSpace(remark)
+	response := defaultResponse
+	if trimmedRemark == "" {
+		response = emptyStatementResponse
+	} else if IsQuestion(trimmedRemark) {
+		if IsShouting(trimmedRemark) && HasLetters(trimmedRemark) {
+			response = shoutedQuestionResponse
+		} else {
+			response = questionResponse
+		}
+	} else if IsShouting(trimmedRemark) && HasLetters(trimmedRemark) {
+		response = shoutResponse
+	}
+	return response
+}
+
+// IsShouting takes a string and determines if it is all caps
+func IsShouting(s string) bool {
+	for _, r := range s {
+		if unicode.IsLetter(r) && unicode.IsLower(r) {
+			return false
+		}
+	}
+	return true
+}
+
+// IsQuestion takes a string and determines if the last character is a question mark
+func IsQuestion(s string) bool {
+	return string(s[len(s)-1]) == "?"
+}
+
+// HasLetters determines if a string contains any letters
+func HasLetters(s string) bool {
+	for _, r := range s {
+		if unicode.IsLetter(r) {
+			return true
+		}
+	}
+	return false
 }
