@@ -8,11 +8,14 @@ import (
 // Abbreviate takes a string and returns an acronym of that string
 // The acronym is made up of the first letter of each word in the string
 func Abbreviate(s string) string {
-	var acronym strings.Builder
+	var acronym string
 	s = strings.NewReplacer("-", " ", "_", "").Replace(s)
+
 	words := strings.Fields(s)
+
 	for _, word := range words {
-		acronym.WriteByte(word[0])
+		acronym += string(word[0])
 	}
-	return strings.ToUpper(acronym.String())
+
+	return strings.ToUpper(acronym)
 }
