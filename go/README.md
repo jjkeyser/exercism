@@ -14,7 +14,7 @@
 - [Two Fer](./two-fer)
 - [Hamming](./hamming)
 - [Raindrops](./raindrops)
-- Scrabble Score
+- [Scrabble Score](./scrabble-score)
 - Isogram
 - Difference of Squares
 - Luhn
