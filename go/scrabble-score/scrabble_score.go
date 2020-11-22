@@ -17,10 +17,8 @@ var scores = map[string]int{
 // Score returns the scrabble score of a word
 func Score(word string) int {
 	score := 0
-	for _, letter := range word {
-		if val, ok := scores[strings.ToUpper(string(letter))]; ok {
-			score += val
-		}
+	for _, letter := range strings.ToUpper(word) {
+		score += scores[string(letter)]
 	}
 	return score
 }
