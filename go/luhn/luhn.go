@@ -18,15 +18,13 @@ func Valid(number string) bool {
 
 	for _, d := range number {
 		d = d - '0'
-		if !everySecond {
-			sum += int(d)
-		} else {
+		if everySecond {
 			d *= 2
 			if d > 9 {
 				d -= 9
 			}
-			sum += int(d)
 		}
+		sum += int(d)
 		everySecond = !everySecond
 	}
 
