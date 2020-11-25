@@ -1,7 +1,6 @@
 package luhn
 
 import (
-	"strconv"
 	"strings"
 	"unicode"
 )
@@ -14,13 +13,24 @@ func Valid(number string) bool {
 		return false
 	}
 
-	number = doubleEverySecondDigit(number)
+	everySecond := len(number)%2 == 0
+	sum := 0
 
-	if sumAllDigits(number)%10 != 0 {
-		return false
+	for _, d := range number {
+		d = d - '0'
+		if !everySecond {
+			sum += int(d)
+		} else {
+			d *= 2
+			if d > 9 {
+				d -= 9
+			}
+			sum += int(d)
+		}
+		everySecond = !everySecond
 	}
 
-	return true
+	return sum%10 == 0
 }
 
 func containsInvalidChars(s string) bool {
@@ -30,29 +40,4 @@ func containsInvalidChars(s string) bool {
 		}
 	}
 	return false
-}
-
-func doubleEverySecondDigit(s string) string {
-	split := strings.Split(s, "")
-
-	for i := len(split) - 2; i >= 0; i -= 2 {
-		digit, _ := strconv.Atoi(split[i])
-		digit *= 2
-		if digit > 9 {
-			digit -= 9
-		}
-		split[i] = strconv.Itoa(digit)
-	}
-	return strings.Join(split, "")
-}
-
-func sumAllDigits(s string) int {
-	split := strings.Split(s, "")
-	sum := 0
-
-	for _, digit := range split {
-		digit, _ := strconv.Atoi(digit)
-		sum += digit
-	}
-	return sum
 }
