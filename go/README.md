@@ -15,10 +15,10 @@
 - [Hamming](./hamming)
 - [Raindrops](./raindrops)
 - [Scrabble Score](./scrabble-score)
-- Isogram
-- Difference of Squares
-- Luhn
-- Grains
+- [Isogram](./isogram)
+- [Difference of Squares](./difference-of-squares)
+- [Luhn](./luhn)
+- [Grains](./grains)
 - Clock
 - Parallel Letter Frequency
 - Tree Building
